@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stile.css">
+    <script src="app.js" defer>  </script>
+</head>
+
+<body class="body">
+<h1><div id="titolone">DevTask Manager</div></h1>
+        <div class="contenitore">
+    <button class="bottone-blu-hover-lato">
+        <span>Done:</span>
+        <span id="conta_done"></span>
+    </button>
+    <button class="bottone-blu-hover-lato">
+        <span>Review:</span>
+        <span id="conta_rewiew"></span>
+    </button>
+    <button class="bottone-blu-hover-lato">
+        <span>In Progress:</span>
+        <span id="conta_in_progress"></span>
+    </button>
+    <button class="bottone-blu-hover-lato">
+        <span>Backlog:</span>
+        <span id="conta_backlog"></span>
+    </button>
+</div>
+    <button id="bottone">nuova issue</button>
+    <div class="form-overlay"></div>
+    <form id="form" class="form">
+        <h1 id="h1">crea una nuova issue</h1>
+        titolo<br>
+        <input type="text" id="titolo" name="titolo"> 
+        contenuto <br>
+        <input type="text" id="contenuto" name="contenuto"> 
+        creatore <br>
+        <input type="text" id="creatore" name="creatore"> 
+        <label for="scelta_grav">gravità issue:</label> <br>
+        <select id="scelta_grav" name="scelta_grav">
+            <option value="low">low</option>
+            <option value="medium">medium </option>
+            <option value="high">high</option>
+            <option value="critical">critical</option>
+        </select> <br>
+        <label for="scelta_liv">livello del processo:</label> <br>
+        <select id="scelta_liv" name="scelta_liv">
+            <option value="backlog">backlog</option>
+            <option value="in_progress">in progress </option>
+            <option value="rewiew">rewiew</option>
+        </select> <br>
+        <input type="submit" value="aggiungi" id="add">
+    </form>
+    <table>
+        <th>
+            <div class="scatola_livello"><h1 class="titolini">Backlog </h1>
+             <h1 id="conta_backlog2" class="contatori_2"></h1>
+                <hr class="linea">
+            <ul id="backlog"></ul></div>
+        </th>
+        <th>
+            <div class="scatola_livello"><h1 class="titolini">In Progress</h1>
+                <h1 id="conta_in_progress2" class="contatori_2"></h1>
+                <hr class="linea">
+            <ul id="in_progress"></ul></div>
+        </th>
+        <th>
+            <div class="scatola_livello"><h1 class="titolini">Review</h1>
+                <h1 id="conta_rewiew2" class="contatori_2"></h1>
+                <hr class="linea">
+            <ul id="rewiew"></ul></div>
+        </th>
+        <th>
+            <div class="scatola_livello"><h1 class="titolini">Done</h1>
+                <h1 id="conta_done2" class="contatori_2"></h1>
+                <hr class="linea">
+            <ul id="listadone"></ul></div>
+        </th>
+    </table>
+    <h3 class="colorpicker">customizza il background</h3>
+<input type="color" id="colorPicker" name="colorPicker" >
+<button id="resetschermo">colori default</button>
+    
+
+
+</body>
+
+</html>

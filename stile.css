@@ -1,0 +1,602 @@
+.form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    border: 1px solid rgb(65, 65, 65);
+    background-color: #e6e6e6;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 330px;
+    height: 420px;
+    border-radius: 15px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+}
+
+h1{
+    font-family: arial;
+}
+
+.form input[type="text"],
+.form select {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form label {
+    margin-bottom: 2px;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.form input[type="submit"] {
+    margin-top: 10px;
+    padding: 8px 0;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.18);
+    z-index: 1000;
+}
+.bottoni {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: 1px solid blue;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+.bottoni:hover {
+    background-color: white;
+    color: blue;
+}
+
+.bottoni-elimina {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: 1px solid red;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bottoni-elimina:hover {
+    background-color: white;
+    color: red;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spaziatura tra gli elementi */
+    position: relative; /* Necessario per il posizionamento assoluto del dropdown */
+    white-space: wrap; /* Prevent the text from wrapping to the next line */
+    overflow: hidden; /* Ensure content is clipped within the container */
+    max-width: 275px;
+    margin-right: 22%;
+    text-overflow: ellipsis; /* Add ellipsis (…) when the text is truncated */
+    
+}
+.todo-content{
+    font-family: arial;
+    gap: 10px; /* Spaziatura tra gli elementi */
+    position: relative; /* Necessario per il posizionamento assoluto del dropdown */
+    font-size: 12pt;
+    text-align: left;
+    
+    color: rgb(107, 107, 107);
+    word-break: break-word; /* Permette il wrapping */
+    white-space: pre-wrap;  /* Mantiene gli a capo e va a capo automaticamente */
+    overflow: visible;      /* Permette di vedere tutto il testo */
+}
+
+.todo-box {
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+    background: #fafafa;
+    margin: 7% 0; 
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    width: 87%;
+
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.todo-box select {
+    position: absolute; /* Posiziona il dropdown in modo assoluto */
+    top: 40px; /* Posiziona il dropdown sotto il pulsante */
+    left: 12px; /* Allinea il dropdown con il contenuto */
+    display: none; /* Nasconde il dropdown di default */
+    z-index: 999; /* Porta il dropdown sopra gli altri elementi */
+    background-color: white; /* Sfondo bianco per il dropdown */
+    border: 1px solid #ccc; /* Bordo per il dropdown */
+    padding: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra per migliorare la visibilità */
+    min-width: 150px; /* Imposta una larghezza minima per il dropdown */
+}
+
+.todo-box select.show {
+    display: block; /* Mostra il dropdown quando necessario */
+}
+.bottone-blu-hover {
+    position: relative;;
+    background-color: rgb(255, 255, 255);            
+    border : 1px solid #007bff;
+    color: #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;          
+    padding : 10px 10px;
+    padding-bottom: 27px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-left: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 33px;
+    
+   
+}
+ 
+.bottone-blu-hover:hover {
+  background-color: #007bff;
+  color: white;              
+  border-color: black  
+ 
+ 
+}
+#backlog{
+    margin-left: 10px;
+    margin-top: 20px;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    
+   
+}
+#in_progress{
+    margin-left: 10px;
+    margin-top: 20px;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+#rewiew{
+    margin-left: 2%;
+    margin-top: 20px;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+#listadone{
+    margin-left: 10px;
+    margin-top: 20px;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bottone-rosso-hover {
+    
+    background-color: rgb(255, 255, 255);            
+    border : 1px solid #ff1100;
+    color: #ff0000;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;          
+    padding : 10px 10px;
+    padding-bottom: 27px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 30px;
+    height: 33px;
+    position: absolute;
+    right: 0px;
+    top: 6px;
+   
+}
+ 
+.bottone-rosso-hover:hover {
+  background-color: #ff0000;
+  color: white;              
+  border-color: black  
+ 
+ 
+}
+.titolini{
+    text-align: left;
+    margin-left: 15px;
+
+}
+.contatori_2{
+    font-family: Arial;
+    text-align: right;
+    position: relative;
+    bottom: 50px;
+    margin-right: 10px;
+}
+ .bottone-blu-hover-lato{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(255, 255, 255);            
+    border : 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;          
+    padding : 10px 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    float: right;
+    margin-right: 10px;  
+ }
+ .linea{
+    position: relative;
+    bottom: 50px;
+    color: #acacac;
+ }
+ 
+ .scatola_livello {
+
+    width: 95%;
+    height: auto;
+    min-height: 175px;
+    min-width: 225px;
+    background-color: #ffffff; /* Colore di sfondo */
+    border: 1px solid #acacac; /* Bordo nero */
+    border-radius: 25px; /* Rende la scatola rotonda */
+    display: inline-block; /* Permette di posizionarla accanto al testo */
+    margin-right: 10px; /* Spazio tra la scatola e il testo */
+ }
+#bottone {
+    display: inline-block; /* Assicura che il pulsante abbia dimensioni basate sul contenuto */
+    width: auto; /* Rimuove qualsiasi larghezza forzata */
+    height: auto; /* Rimuove qualsiasi altezza forzata */
+    padding: 10px 20px; /* Aggiungi un po' di spazio interno */
+    font-size: 16px; /* Dimensione del testo */
+    background-color: #007bff; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    border: 1px solid #007bff; /* Bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    cursor: pointer; /* Cambia il cursore al passaggio */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+    position: relative; /* Posizionamento relativo per spostarlo */
+    margin: 10px auto; /* Margine intorno al pulsante */
+    right: 42%; /* Sposta il pulsante di 20px dal bordo sinistro */
+    
+
+}
+
+#bottone:hover {
+    background-color: white; /* Colore di sfondo al passaggio */
+    color: #007bff; /* Colore del testo al passaggio */
+}
+#titolone {
+    position: relative;
+    font-family: arial;
+    top: 55px;
+    font-weight: 700;
+    font-size: 36px;;
+
+    
+}
+/* Layout: make page use column flex so the table can grow to fill available space */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ensure viewport height is used */
+}
+
+/* Ensure the header area (buttons, form etc.) keep their natural size and the table fills the remaining space */
+table {
+    width: 100%;
+    table-layout: fixed; /* force equal column widths when widths are set on th */
+    border-collapse: collapse;
+    flex: 1 1 auto; /* allow the table to grow/shrink and fill remaining vertical space */
+    display: table; /* keep table semantics */
+}
+
+/* Each column gets 25% width so four columns are equal */
+table th {
+    width: 25%;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+/* Make the ul inside each column scrollable if content overflows */
+table th ul,
+table th > ul,
+table th > div > ul {
+    height: calc(100% - 36px); /* leave room for the heading inside the th */
+    margin: 0;
+    padding: 8px;
+    list-style: none;
+    overflow-y: auto;
+}
+
+/* Ensure todo items don't force column width and wrap correctly */
+.todo-item {
+    font-family: arial;
+    word-break: break-word;
+}
+
+
+
+
+.todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.todo-actions-right {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.creator-pill {
+    display: inline-block;
+    background-color: #c9c9c9;
+    color: #333333;
+    border-radius: 12px;
+    padding: 0 11px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 100px;
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+  overflow: hidden; /* Ensure content is clipped within the container */
+  text-overflow: ellipsis; /* Add ellipsis (…) when the text is truncated */
+}
+.bottone-blu-hover,
+.bottone-rosso-hover {
+    position: static !important;
+    margin: 0 0 0 8px;
+    height: 28px;
+    padding: 4px 10px;
+    font-size: 14px;
+}
+
+.todo-box select {
+    position: static !important;
+    margin-left: 4px;
+    min-width: 90px;
+    font-size: 13px;
+}
+
+.pillola_rossa {
+    left: 80%;
+    bottom: 33px;
+    position: relative;
+    display: inline-block;
+    background-color: #ad616160;
+    color: #b33c3c;
+    border-radius: 12px;
+    padding: 0 11px;
+    padding-top: 2px;
+    padding-right: 18px;
+    font-size: 15px;
+    margin-bottom: 2px;
+    font-weight: 100;
+    line-height: 1.2;
+    width: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+}
+.pillola_rossa:hover {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #ff3030;
+    border: 1px solid #ff3030;
+ 
+}
+.pillola_arancio {
+    left: 83%;
+    bottom: 33px;
+    position: relative;
+    display: inline-block;
+    background-color: #af6e3081;
+    color: #a7502d;
+    border-radius: 12px;
+    padding: 0 11px;
+    padding-top: 2px;
+    padding-left: 12px;
+    font-size: 15px;
+    margin-bottom: 2px;
+    font-weight: 100;
+    line-height: 1.2;
+    width: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+}
+.pillola_arancio:hover {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #fd7038;
+    border: 1px solid #fd7038;
+ 
+}
+.pillola_gialla {
+    left: 81%;
+    bottom: 33px;
+    position: relative;
+    display: inline-block;
+    background-color: #d1c376a8;
+    color: #be9c29;
+    border-radius: 12px;
+    padding: 0 11px;
+    padding-top: 2px;
+    padding-right: 21px;
+    font-size: 15px;
+    margin-bottom: 2px;
+    font-weight: 100;
+    line-height: 1.2;
+    width: 35px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+}
+.pillola_gialla:hover {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #ffcf31;
+    border: 1px solid #ffcf31;
+ 
+}
+.pillola_verde {
+    left: 86%;
+    bottom: 33px;
+    position:relative;
+    display: inline-block;
+    background-color: #58a5519f;
+    color: #288127;
+    border-radius: 12px;
+    padding: 0 11px;
+    padding-top: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 15px;
+    margin-bottom: 2px;
+    font-weight: 100;
+    line-height: 1.2;
+    width: 32px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+}.pillola_verde:hover {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #43d441;
+    border: 1px solid #43d441;
+ 
+}
+.body {
+    background-color:  #ececece0;
+    width: 100%
+}
+.colorPicker{
+    position: relative;
+    left: 40%;
+    font-family: arial;
+    bottom: 50%;
+}
+#resetschermo{
+    margin-left: 45%;
+    margin-right: 45%;
+    position: relative;
+    bottom: 5%;
+    padding-left: 5px;
+    border: 1px solid #000000;
+    background-color: #fafafa;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transizioni */
+}
+#resetschermo:hover{
+    background-color: #c7c7c7;
+    color: white;
+}
+@media (max-width: 1627px) {
+    .pillola_gialla {
+        left: 79%;
+    }
+}
+@media (max-width: 1484px) {
+    .pillola_gialla {
+        left: 74%;}
+    .pillola_rossa {
+        left: 76%;
+    }
+    .pillola_arancio {
+        left: 79%;
+    }
+    .pillola_verde {
+        left: 83%;
+    }
+}
+@media  (max-width: 1273px) {
+    .pillola_gialla {
+        padding-left: 6px;
+    }
+    .pillola_rossa {
+        padding-right: 15px;
+        padding-left: 6px;
+    }
+}
+@media  (max-width: 1132px) {
+    .pillola_gialla {
+        left: 70%;
+    }
+    .pillola_rossa {
+        left: 72%;
+    }
+    .pillola_arancio {
+        left: 73%;
+    }
+    .pillola_verde {
+        left: 77%;
+    }
+}
+@media (max-width: 890px) {
+#titolone {
+    top: 0px;
+    }
+}
+@media (max-width: 1040px) {
+    table, table th {
+        display: block;
+        width: 100%;
+    }
+    table th { margin-bottom: 12px; }
+    #bottone {
+        right: 30%; /* Sposta il pulsante di 20px dal bordo sinistro */
+    }
+    .pillola_arancio {
+        left: 83%;}
+    .pillola_verde {
+        left: 86%;}
+    .pillola_rossa {
+        left: 80%;}
+    .pillola_gialla {
+        left: 81%;}
+}
