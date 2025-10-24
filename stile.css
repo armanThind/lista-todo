@@ -577,11 +577,6 @@ table th > div > ul {
         left: 77%;
     }
 }
-@media (max-width: 890px) {
-#titolone {
-    top: 0px;
-    }
-}
 @media (max-width: 1040px) {
     table, table th {
         display: block;
@@ -589,7 +584,7 @@ table th > div > ul {
     }
     table th { margin-bottom: 12px; }
     #bottone {
-        right: 30%; /* Sposta il pulsante di 20px dal bordo sinistro */
+        right: 30%; 
     }
     .pillola_arancio {
         left: 83%;}
@@ -599,4 +594,12 @@ table th > div > ul {
         left: 80%;}
     .pillola_gialla {
         left: 81%;}
+    .scatola_livello{
+        width: 200%;
+    }
+}
+@media (max-width: 890px) {
+#titolone {
+    top: 0px;
+    }
 }
