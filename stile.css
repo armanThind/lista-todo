@@ -266,7 +266,6 @@ h1{
  }
  .linea{
     position: relative;
-    bottom: 50px;
     color: #acacac;
  }
  
@@ -603,3 +602,4 @@ table th > div > ul {
     top: 0px;
     }
 }
+
