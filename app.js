@@ -163,7 +163,25 @@ const showTodolist = () => {
         btnElimina.className = "bottone-rosso-hover";
         btnElimina.onclick = () => {
             const index = todolistData.findIndex((t) => t.id === todo.id);
-            if (index !== -1) {
+            if (index !== 1) {
+                if (todo.level === "backlog"){
+                    console.log("diminuisci di uno")
+                    conta_backlog = conta_backlog - 1
+                } else if (todo.level === "in_progress") {
+            conta_in_progress = conta_in_progress - 1
+        } else if (todo.level === "rewiew") {
+            conta_rewiew = conta_rewiew - 1
+        } else if (todo.level === "done") {
+            conta_done = conta_done - 1
+    }
+    cont1.innerText = conta_backlog
+    cont2.innerText = conta_in_progress
+    cont3.innerText = conta_rewiew
+    cont4.innerText = conta_done
+    cont5.innerText = conta_backlog
+    cont6.innerText = conta_in_progress
+    cont7.innerText = conta_rewiew
+    cont8.innerText = conta_done
                 todolistData.splice(index, 1);
                 saveToLocalStorage();
                 showTodolist();
